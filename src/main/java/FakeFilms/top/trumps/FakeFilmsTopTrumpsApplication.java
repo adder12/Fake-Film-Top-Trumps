@@ -1,4 +1,4 @@
-package Fake.films.top.trumps;
+package FakeFilms.top.trumps;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

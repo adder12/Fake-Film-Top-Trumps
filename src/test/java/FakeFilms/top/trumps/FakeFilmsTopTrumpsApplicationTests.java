@@ -1,4 +1,4 @@
-package Fake.films.top.trumps;
+package FakeFilms.top.trumps;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package Fake.films.top.trumps;
+package FakeFilms.top.trumps;
 
 public interface FilmRepository {
 }
