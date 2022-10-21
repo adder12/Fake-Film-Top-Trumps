@@ -19,5 +19,5 @@ public class ActorTest {
         testActor.setLastName("test");
         Assertions.assertEquals("test", testActor.getLastName(), "The last name was incorrect");
     }
-    
+
 }
