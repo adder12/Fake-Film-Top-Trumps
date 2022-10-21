@@ -16,7 +16,7 @@ public class FakeFilmsTopTrumpsApplication {
     private ActorRepository actorRepo;
     private FilmRepository filmRepo;
 
-    public FakeFilmsTopTrumpsApplication(ActorRepository actorRepo) {
+    public FakeFilmsTopTrumpsApplication(ActorRepository actorRepo, FilmRepository filmRepo) {
         this.actorRepo = actorRepo;
         this.filmRepo = filmRepo;
     }

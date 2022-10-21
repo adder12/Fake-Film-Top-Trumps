@@ -31,6 +31,7 @@ public class Actor {
 
     }
 
+
     //Methods-----------------------------------------------------------------------------------------------
     public int getActorId() {
         return this.actorId;
