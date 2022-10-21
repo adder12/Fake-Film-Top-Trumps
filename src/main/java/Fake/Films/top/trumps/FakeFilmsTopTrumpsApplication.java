@@ -3,6 +3,7 @@ package Fake.Films.top.trumps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
@@ -29,8 +30,24 @@ public class FakeFilmsTopTrumpsApplication {
     Iterable<Actor> getAllActors() {
         return actorRepo.findAll();
     }
-//@PostMapping
-	
-//@PutMapping
-//	@DeleteMapping
+
+    @GetMapping("/singleActor/{id}")
+
+
+    @PostMapping("/newActor")
+    @ResponseBody
+
+
+    public Actor createActor(@RequestBody Actor actor) {
+
+        return actorRepo.save(actor);
+
+    }
+
+    //@PutMapping("/updateActor")
+    @DeleteMapping("/deleteActor/{id}")
+    void deleteEmployeeByID(@PathVariable int id) {
+        actorRepo.deleteById(id);
+    }
+
 }
