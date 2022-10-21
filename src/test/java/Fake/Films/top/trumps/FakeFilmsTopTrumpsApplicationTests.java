@@ -3,8 +3,9 @@ package Fake.Films.top.trumps;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class FakeFilmsTopTrumpsApplicationTests {
+
 
 //	@Test
 //	void contextLoads() {
