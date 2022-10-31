@@ -58,7 +58,11 @@ public class FilmTest {
 
     @Test
     public void testCompareLength() {
+        testFilm.setLength(100);
+        testFilm.compareLength(newFilm);
+
         testFilm.setLength(80);
+
         Assertions.assertEquals(0, testFilm.compareLength(newFilm), "The length comparison was wrong");
 
     }
@@ -84,6 +88,8 @@ public class FilmTest {
 
     @Test
     public void testGetIntRating() {
+        testFilm.setRating("R");
+        testFilm.getIntRating();
         testFilm.setRating("G");
         Assertions.assertEquals(1, testFilm.getIntRating(), "The get Int rating method failed");
     }
