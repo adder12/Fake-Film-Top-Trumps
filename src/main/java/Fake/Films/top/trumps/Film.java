@@ -88,6 +88,9 @@ public class Film {
             case "R":
                 intRating = 5;
                 break;
+
+            default:
+                break;
         }
         return intRating;
     }
