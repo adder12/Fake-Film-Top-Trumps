@@ -29,10 +29,41 @@ public class FakeFilmsTopTrumpsApplication {
 
     }
 
-    @GetMapping("allFilms")
+    @GetMapping("/allFilms")
     public @ResponseBody
     Iterable<Film> getAllFilms() {
         return filmRepo.findAll();
+    }
+
+    @GetMapping("/singleFilm/{id}")
+    public Film getSingleFilm(@PathVariable(value = "id") int filmId) {
+        return filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Film not found at index " + filmId));
+    }
+
+    @PostMapping("/newFilm")
+    public void createFilm(@RequestBody Film film) {
+        filmRepo.save(film);
+    }
+
+    @PutMapping("/updateFilm/{id}")
+    public ResponseEntity<Film> updateFilm(@PathVariable(value = "id") int filmId, @RequestBody Film filmDetails) {
+        Film film = filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + filmId));
+
+        film.setTitle(filmDetails.getTitle());
+        film.setDescription(filmDetails.getDescription());
+        film.setReleaseYear(filmDetails.getReleaseYear());
+        film.setRentalRate(filmDetails.getRentalRate());
+        film.setLength(filmDetails.getLength());
+        film.setReplacementCost(filmDetails.getReplacementCost());
+        film.setRating(filmDetails.getRating());
+
+        final Film updatedActor = filmRepo.save(film);
+        return ResponseEntity.ok(updatedActor);
+    }
+
+    @DeleteMapping("/deleteFilm/{id}")
+    void deleteFilm(@PathVariable int id) {
+        filmRepo.deleteById(id);
     }
 
     @GetMapping("/allActors")
@@ -41,11 +72,14 @@ public class FakeFilmsTopTrumpsApplication {
         return actorRepo.findAll();
     }
 
+    @GetMapping("/singleActor/{id}")
+    public Actor getSingleActor(@PathVariable(value = "id") int actorId) {
+        return actorRepo.findById(actorId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + actorId));
+    }
 
     @PostMapping("/newActor")
-
-    public Actor createActor(@RequestBody Actor actor) {
-        return actorRepo.save(actor);
+    public void createActor(@RequestBody Actor actor) {
+        actorRepo.save(actor);
     }
 
     @PutMapping("/updateActor/{id}")
@@ -64,3 +98,9 @@ public class FakeFilmsTopTrumpsApplication {
     }
 
 }
+
+
+
+
+
+
