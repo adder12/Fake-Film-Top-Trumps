@@ -6,6 +6,13 @@ import org.junit.jupiter.api.Test;
 public class FilmTest {
 
     Film testFilm = new Film();
+    Film newFilm = new Film("test", "test", 2000, 20.4, 90, 10.53, "PG-13");
+
+
+    @Test
+    public void testGetFilmId() {
+        Assertions.assertEquals(0, testFilm.getFilmId(), "The id was incorrect");
+    }
 
     @Test
     public void testTitle() {
@@ -49,5 +56,35 @@ public class FilmTest {
         Assertions.assertEquals("G", testFilm.getRating(), "The rating was incorrect");
     }
 
+    @Test
+    public void testCompareLength() {
+        testFilm.setLength(80);
+        Assertions.assertEquals(0, testFilm.compareLength(newFilm), "The length comparison was wrong");
 
+    }
+
+    @Test
+    public void testCompareRentalRate() {
+        testFilm.setRentalRate(14);
+        Assertions.assertEquals(0, testFilm.compareRentalRate(newFilm), "The rental rate comparison was wrong");
+    }
+
+    @Test
+    public void testCompareReplacementCost() {
+        testFilm.setReplacementCost(9);
+        Assertions.assertEquals(0, testFilm.compareReplacementCost(newFilm), "The replacement rate comparison failed");
+    }
+
+    @Test
+    public void testCompareRating() {
+        testFilm.setRating("G");
+        Assertions.assertEquals(0, testFilm.compareRating(newFilm), "The rating comparison failed");
+    }
+
+
+    @Test
+    public void testGetIntRating() {
+        testFilm.setRating("G");
+        Assertions.assertEquals(1, testFilm.getIntRating(), "The get Int rating method failed");
+    }
 }

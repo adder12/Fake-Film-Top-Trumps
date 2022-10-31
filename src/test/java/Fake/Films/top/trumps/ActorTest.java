@@ -6,7 +6,14 @@ import org.junit.jupiter.api.Test;
 
 public class ActorTest {
     Actor testActor = new Actor();
+    Actor testActorTwo = new Actor("test", "test");
 
+    @Test
+    public void testGetActorId() {
+
+        Assertions.assertEquals(0, testActorTwo.getActorId(), "The actor ID is incorrect");
+
+    }
 
     @Test
     public void testgetFirstName() {
