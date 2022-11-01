@@ -11,7 +11,7 @@ class ActorTest {
 
     @Test
     void testToString() {
-        String testString = "Actor id = 0 first name = test last name = test";
+        String testString = "Actor id = 0 first name = null last name = null";
         Assertions.assertEquals(testString, testActor.toString(), "The to string method failed");
     }
 
