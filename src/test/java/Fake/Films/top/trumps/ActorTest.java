@@ -8,6 +8,13 @@ class ActorTest {
     Actor testActor = new Actor();
     Actor testActorTwo = new Actor("test", "test");
 
+
+    @Test
+    void testToString() {
+        String testString = "Actor id = 0 first name = test last name = test";
+        Assertions.assertEquals(testString, testActor.toString(), "The to string method failed");
+    }
+
     @Test
     void testGetActorId() {
 

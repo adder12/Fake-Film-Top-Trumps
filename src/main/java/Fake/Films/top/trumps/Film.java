@@ -1,10 +1,12 @@
 package Fake.Films.top.trumps;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "film")
 public class Film {
+//Attributes--------------------------------------------------------
 
     @Id
     @Column(name = "film_id")
@@ -24,7 +26,10 @@ public class Film {
     double replacementCost;
     @Column(name = "rating")
     String rating;
+    @ManyToMany
+    Set<Film> films;
 
+    //Constructors----------------------------------------------------------------------------------------
     public Film(String title, String description, int releaseYear, double rentalRate, int length, double replacementCost, String rating) {
         this.title = title;
         this.description = description;
@@ -38,6 +43,7 @@ public class Film {
     public Film() {
     }
 
+    //Methods-----------------------------------------------------------------------------------------------
     public int getFilmId() {
         return this.filmId;
     }

@@ -1,6 +1,7 @@
 package Fake.Films.top.trumps;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "actor")
@@ -18,6 +19,9 @@ public class Actor {
 
     @Column(name = "last_name")
     String lastName;
+
+    @ManyToMany
+    Set<Actor> actors;
 
     //Constructors----------------------------------------------------------------------------------------
 
@@ -51,6 +55,17 @@ public class Actor {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+        output.append("Actor id = ");
+        output.append(this.actorId);
+        output.append(" first name = ");
+        output.append(this.firstName);
+        output.append(" last name = ");
+        output.append(this.lastName);
+        return output.toString();
     }
 
 }

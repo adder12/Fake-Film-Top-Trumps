@@ -13,8 +13,9 @@ import org.springframework.web.client.ResourceAccessException;
 @CrossOrigin
 public class FakeFilmsTopTrumpsApplication {
     @Autowired
-    private ActorRepository actorRepo;
-    private FilmRepository filmRepo;
+    public ActorRepository actorRepo;
+    @Autowired
+    public FilmRepository filmRepo;
 
     public FakeFilmsTopTrumpsApplication(ActorRepository actorRepo, FilmRepository filmRepo) {
         this.actorRepo = actorRepo;
