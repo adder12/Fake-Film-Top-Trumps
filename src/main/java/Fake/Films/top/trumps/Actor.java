@@ -21,7 +21,7 @@ public class Actor {
     String lastName;
 
     @ManyToMany
-    Set<Actor> actors;
+    Set<Film> films;
 
     //Constructors----------------------------------------------------------------------------------------
 

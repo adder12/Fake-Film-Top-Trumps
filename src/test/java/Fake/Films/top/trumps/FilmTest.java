@@ -166,5 +166,11 @@ class FilmTest {
         Assertions.assertEquals(2, testFilm.compareRating(newFilm), "The rating comparison failed on more");
     }
 
+    @Test
+    void testToString() {
+        String testString = "Film id = 0 Title = test Description = test Release Year = 2000 RentalRate = 20.4 Length = 90 Replacement Cost = 10.53 rating = PG";
+        Assertions.assertEquals(testString, newFilm.toString(), "The film to string method failed");
+    }
 
 }
+//Film newFilm = new Film("test", "test", 2000, 20.4, 90, 10.53, "PG");

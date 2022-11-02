@@ -8,3 +8,4 @@ Feature: Display a single actor from the database for the user, given a actorId
     Given That an actor exists at the inputted position
     When a user requests the details of a single actor
     Then the actors details are displayed
+

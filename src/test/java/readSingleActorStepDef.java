@@ -43,7 +43,7 @@ public class readSingleActorStepDef {
     @Then("the actors details are displayed")
     public void the_actors_details_are_displayed() {
         actorOutput = requestedActor.toString();
-        Assertions.assertEquals("", actorOutput, "");
+        Assertions.assertEquals("Actor id = 190 first name = AUDREY last name = BAILEY", actorOutput, "");
         // throw new io.cucumber.java.PendingException();
     }
 }

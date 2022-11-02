@@ -47,7 +47,7 @@ public class FakeFilmsTopTrumpsApplication {
     }
 
     @PutMapping("/updateFilm/{id}")
-    public ResponseEntity<Film> updateFilm(@PathVariable(value = "id") int filmId, @RequestBody Film filmDetails) {
+    public void updateFilm(@PathVariable(value = "id") int filmId, @RequestBody Film filmDetails) {
         Film film = filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + filmId));
 
         film.setTitle(filmDetails.getTitle());
@@ -58,8 +58,8 @@ public class FakeFilmsTopTrumpsApplication {
         film.setReplacementCost(filmDetails.getReplacementCost());
         film.setRating(filmDetails.getRating());
 
-        final Film updatedActor = filmRepo.save(film);
-        return ResponseEntity.ok(updatedActor);
+        filmRepo.save(film);
+     
     }
 
     @DeleteMapping("/deleteFilm/{id}")
@@ -84,13 +84,13 @@ public class FakeFilmsTopTrumpsApplication {
     }
 
     @PutMapping("/updateActor/{id}")
-    public ResponseEntity<Actor> updateActor(@PathVariable(value = "id") int actorId, @RequestBody Actor actorDetails) {
+    public void updateActor(@PathVariable(value = "id") int actorId, @RequestBody Actor actorDetails) {
         Actor actor = actorRepo.findById(actorId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + actorId));
 
         actor.setFirstName(actorDetails.getFirstName());
         actor.setLastName(actorDetails.getLastName());
-        final Actor updatedActor = actorRepo.save(actor);
-        return ResponseEntity.ok(updatedActor);
+        actorRepo.save(actor);
+
     }
 
     @DeleteMapping("/deleteActor/{id}")

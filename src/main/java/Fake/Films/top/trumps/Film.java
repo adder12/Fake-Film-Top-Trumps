@@ -26,8 +26,12 @@ public class Film {
     double replacementCost;
     @Column(name = "rating")
     String rating;
+
     @ManyToMany
-    Set<Film> films;
+    @JoinTable(name = "film_actor",
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id"))
+    Set<Actor> actors;
 
     //Constructors----------------------------------------------------------------------------------------
     public Film(String title, String description, int releaseYear, double rentalRate, int length, double replacementCost, String rating) {
@@ -169,4 +173,27 @@ public class Film {
         }
     }
 
+
+    public String toString() {
+
+        StringBuilder output = new StringBuilder();
+        output.append("Film id = ");
+        output.append(this.filmId);
+        output.append(" Title = ");
+        output.append(this.title);
+        output.append(" Description = ");
+        output.append(this.description);
+        output.append(" Release Year = ");
+        output.append(this.releaseYear);
+        output.append(" RentalRate = ");
+        output.append(this.rentalRate);
+        output.append(" Length = ");
+        output.append(this.length);
+        output.append(" Replacement Cost = ");
+        output.append(this.replacementCost);
+        output.append(" rating = ");
+        output.append(this.rating);
+
+        return output.toString();
+    }
 }
