@@ -17,7 +17,7 @@ public class Category {
     String categoryName;
 
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "categories")
     Set<Film> films;
 
 //Constructors----------------------------------------------------------------------

@@ -16,8 +16,10 @@ public class FakeFilmsTopTrumpsApplication {
     public ActorRepository actorRepo;
     @Autowired
     public FilmRepository filmRepo;
+    @Autowired
+    public CategoryRepository categoryRepo;
 
-    public FakeFilmsTopTrumpsApplication(ActorRepository actorRepo, FilmRepository filmRepo) {
+    public FakeFilmsTopTrumpsApplication(ActorRepository actorRepo, FilmRepository filmRepo, CategoryRepository categoryRepo) {
         this.actorRepo = actorRepo;
         this.filmRepo = filmRepo;
     }
@@ -59,7 +61,7 @@ public class FakeFilmsTopTrumpsApplication {
         film.setRating(filmDetails.getRating());
 
         filmRepo.save(film);
-     
+
     }
 
     @DeleteMapping("/deleteFilm/{id}")

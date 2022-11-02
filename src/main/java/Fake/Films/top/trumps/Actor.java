@@ -20,7 +20,7 @@ public class Actor {
     @Column(name = "last_name")
     String lastName;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "actors")
     Set<Film> films;
 
     //Constructors----------------------------------------------------------------------------------------

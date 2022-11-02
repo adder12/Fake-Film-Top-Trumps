@@ -33,6 +33,11 @@ public class Film {
             inverseJoinColumns = @JoinColumn(name = "actor_id"))
     Set<Actor> actors;
 
+    @ManyToMany
+    @JoinTable(name = "film_category", joinColumns = @JoinColumn(name = "film_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    Set<Category> categories;
+
+
     //Constructors----------------------------------------------------------------------------------------
     public Film(String title, String description, int releaseYear, double rentalRate, int length, double replacementCost, String rating) {
         this.title = title;
@@ -173,6 +178,14 @@ public class Film {
         }
     }
 
+
+    public void addActor(Actor actor) {
+        actors.add(actor);
+    }
+
+    public void addCategory(Category category) {
+        categories.add(category);
+    }
 
     public String toString() {
 

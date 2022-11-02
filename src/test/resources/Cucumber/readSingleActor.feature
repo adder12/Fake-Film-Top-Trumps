@@ -4,8 +4,13 @@ Feature: Display a single actor from the database for the user, given a actorId
   So that I can view that actors details
 
 
-  Scenario: There is an actor at that position in the database
-    Given That an actor exists at the inputted position
+  Scenario Outline: There is an actor at that position in the database
+    Given That an actor exists at position <ID>
     When a user requests the details of a single actor
-    Then the actors details are displayed
+    Then the actors details "<firstName>" "<lastName>" are displayed
 
+
+    Examples:
+      | ID | firstName | lastName |
+      | 1  | PENELOPE  | GUINESS  |
+      | 51 | GARY      | PHOENIX  |

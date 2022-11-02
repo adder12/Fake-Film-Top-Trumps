@@ -1,8 +1,5 @@
 
-import Fake.Films.top.trumps.Actor;
-import Fake.Films.top.trumps.ActorRepository;
-import Fake.Films.top.trumps.FakeFilmsTopTrumpsApplication;
-import Fake.Films.top.trumps.FilmRepository;
+import Fake.Films.top.trumps.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,32 +15,40 @@ public class readSingleActorStepDef {
     @Autowired
     private FilmRepository filmRepo;
     @Autowired
-    FakeFilmsTopTrumpsApplication please = new FakeFilmsTopTrumpsApplication(actorRepo, filmRepo);
+    private CategoryRepository categoryRepo;
+    @Autowired
+    FakeFilmsTopTrumpsApplication please = new FakeFilmsTopTrumpsApplication(actorRepo, filmRepo, categoryRepo);
 
 
     int id;
     String actorOutput;
     Actor requestedActor;
 
-    @Given("That an actor exists at the inputted position")
-    public void that_an_actor_exists_at_the_inputted_position() {
-        id = 190;
+    @Given("That an actor exists at position {int}")
+    public void that_an_actor_exists_at_position(Integer int1) {
+        id = int1;
 
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
     }
 
     @When("a user requests the details of a single actor")
     public void a_user_requests_the_details_of_a_single_actor() {
+        requestedActor = actorRepo.getActorById(id);
+        //requestedActor = please.actorRepo.findById(id).orElseThrow(() -> new ResourceAccessException("Actor not found at " + id));
 
-        requestedActor = please.actorRepo.findById(id).orElseThrow(() -> new ResourceAccessException("Actor not found at " + id));
-        // throw new io.cucumber.java.PendingException();
     }
 
-    @Then("the actors details are displayed")
-    public void the_actors_details_are_displayed() {
+    @Then("the actors details {string} {string} are displayed")
+    public void the_actors_details_are_displayed(String string, String string2) {
+        StringBuilder output = new StringBuilder();
+        output.append("Actor id = ");
+        output.append(id);
+        output.append(" first name = ");
+        output.append(string);
+        output.append(" last name = ");
+        output.append(string2);
+
         actorOutput = requestedActor.toString();
-        Assertions.assertEquals("Actor id = 190 first name = AUDREY last name = BAILEY", actorOutput, "");
-        // throw new io.cucumber.java.PendingException();
+        Assertions.assertEquals(output.toString(), actorOutput, "");
+
     }
 }
