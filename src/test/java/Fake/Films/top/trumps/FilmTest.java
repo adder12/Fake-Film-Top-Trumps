@@ -166,6 +166,17 @@ class FilmTest {
         Assertions.assertEquals(2, testFilm.compareRating(newFilm), "The rating comparison failed on more");
     }
 
+
+    @Test
+    void testAddActor() {
+
+        Actor testActor = new Actor();
+        testFilm.addActor(testActor);
+
+
+    }
+
+
     @Test
     void testToString() {
         String testString = "Film id = 0 Title = test Description = test Release Year = 2000 RentalRate = 20.4 Length = 90 Replacement Cost = 10.53 rating = PG";

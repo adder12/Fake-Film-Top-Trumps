@@ -11,6 +11,8 @@ Feature: Display a single actor from the database for the user, given a actorId
 
 
     Examples:
-      | ID | firstName | lastName |
-      | 1  | PENELOPE  | GUINESS  |
-      | 51 | GARY      | PHOENIX  |
+      | ID  | firstName | lastName |
+      | 1   | PENELOPE  | GUINESS  |
+      | 51  | GARY      | PHOENIX  |
+      | 18  | Dan       | Torn     |
+      | 116 | Dan       | Streep   |
