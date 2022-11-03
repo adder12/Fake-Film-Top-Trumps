@@ -95,10 +95,39 @@ public class FakeFilmsTopTrumpsApplication {
     }
 
     @DeleteMapping("/deleteActor/{id}")
-    void deleteEmployeeByID(@PathVariable int id) {
+    void deleteActorByID(@PathVariable int id) {
         actorRepo.deleteById(id);
     }
 
+    @GetMapping("/allCategories")
+    public @ResponseBody
+    Iterable<Category> getAllCategories() {
+
+        return categoryRepo.findAll();
+    }
+
+    @GetMapping("/category/{id}")
+    public Category getSingleCategory(@PathVariable(value = "id") int catId) {
+        return categoryRepo.findById(catId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + catId));
+    }
+
+    @PostMapping("/newCategory")
+    public void createCategory(@RequestBody Category category) {
+        categoryRepo.save(category);
+    }
+
+    @PutMapping("updateCategory/{id}")
+    public void updateCategory(@PathVariable(value = "id") int catId, @RequestBody String newName) {
+        Category category = categoryRepo.findById(catId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + catId));
+
+        category.setCategoryName(newName);
+        categoryRepo.save(category);
+    }
+
+    @DeleteMapping("deleteCategory/{id}")
+    void deleteCategoryById(@PathVariable int id) {
+        categoryRepo.deleteById(id);
+    }
 
 }
 

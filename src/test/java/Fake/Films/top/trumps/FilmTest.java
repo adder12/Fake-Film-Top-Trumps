@@ -180,8 +180,8 @@ class FilmTest {
 
     @Test
     void testAddCategory() {
-        Actor testActor = new Actor();
-        newFilm.addActor(testActor);
+        Category testCategory = new Category();
+        newFilm.addCategory(testCategory);
     }
 
 
