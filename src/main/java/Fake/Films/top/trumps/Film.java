@@ -1,6 +1,7 @@
 package Fake.Films.top.trumps;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -47,6 +48,8 @@ public class Film {
         this.length = length;
         this.replacementCost = replacementCost;
         this.rating = rating;
+        this.actors = new HashSet<>();
+        this.actors = new HashSet<>();
     }
 
     public Film() {

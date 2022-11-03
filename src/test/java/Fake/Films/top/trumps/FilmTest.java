@@ -1,7 +1,11 @@
 package Fake.Films.top.trumps;
 
+import io.cucumber.java.hu.Ha;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashSet;
+import java.util.Set;
 
 class FilmTest {
 
@@ -171,9 +175,13 @@ class FilmTest {
     void testAddActor() {
 
         Actor testActor = new Actor();
-        testFilm.addActor(testActor);
+        newFilm.addActor(testActor);
+    }
 
-
+    @Test
+    void testAddCategory() {
+        Actor testActor = new Actor();
+        newFilm.addActor(testActor);
     }
 
 
