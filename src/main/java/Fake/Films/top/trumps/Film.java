@@ -49,7 +49,7 @@ public class Film {
         this.replacementCost = replacementCost;
         this.rating = rating;
         this.actors = new HashSet<>();
-        this.actors = new HashSet<>();
+        this.categories = new HashSet<>();
     }
 
     public Film() {
