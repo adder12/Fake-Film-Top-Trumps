@@ -1,4 +1,4 @@
-package Fake.Films.top.trumps;
+package FakeFilmTopTrumps;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

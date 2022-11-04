@@ -1,4 +1,4 @@
-package Fake.Films.top.trumps;
+package FakeFilmTopTrumps;
 
 import javax.persistence.*;
 import java.util.HashSet;
