@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class FilmTest {
 
     Film testFilm = new Film();
-    Film newFilm = new Film("test", "test", 2000, 20.4, 90, 10.53, "PG");
+    Film newFilm = new Film("test", "test", 2006, 20.4, 90, 10.53, "PG");
 
 
     @Test
@@ -91,6 +91,24 @@ class FilmTest {
     void testGetIntRatingDEF() {
         testFilm.setRating("test");
         Assertions.assertEquals(0, testFilm.getIntRating(), "The get int rating method failed on the default case");
+    }
+
+    @Test
+    void testCompareReleaseYearLess() {
+        testFilm.setReleaseYear(2005);
+        Assertions.assertEquals(0, testFilm.compareReleaseYear(newFilm), "The Release year comparison failed on less");
+    }
+
+    @Test
+    void testCompareReleaseYearSame() {
+        testFilm.setReleaseYear(2006);
+        Assertions.assertEquals(1, testFilm.compareReleaseYear(newFilm), "The release year comparison failed on same");
+    }
+
+    @Test
+    void testCompareReleaseYearHigher() {
+        testFilm.setReleaseYear(2007);
+        Assertions.assertEquals(2, testFilm.compareReleaseYear(newFilm), "The release year comparison failed on more");
     }
 
     @Test
@@ -184,7 +202,7 @@ class FilmTest {
 
     @Test
     void testToString() {
-        String testString = "Film id = 0 Title = test Description = test Release Year = 2000 RentalRate = 20.4 Length = 90 Replacement Cost = 10.53 rating = PG";
+        String testString = "Film id = 0 Title = test Description = test Release Year = 2006 RentalRate = 20.4 Length = 90 Replacement Cost = 10.53 rating = PG";
         Assertions.assertEquals(testString, newFilm.toString(), "The film to string method failed");
     }
 

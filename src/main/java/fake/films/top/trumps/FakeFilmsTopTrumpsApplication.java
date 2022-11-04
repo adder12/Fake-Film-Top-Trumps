@@ -26,13 +26,7 @@ public class FakeFilmsTopTrumpsApplication {
         this.categoryRepo = categoryRepo;
     }
 
-
-    public static void main(String[] args) {
-
-        SpringApplication.run(FakeFilmsTopTrumpsApplication.class, args);
-
-
-    }
+    public static void main(String[] args) {SpringApplication.run(FakeFilmsTopTrumpsApplication.class, args);}
 
     @GetMapping("/allFilms")
     public @ResponseBody Iterable<Film> getAllFilms() {
@@ -52,7 +46,6 @@ public class FakeFilmsTopTrumpsApplication {
     @PutMapping("/updateFilm/{id}")
     public void updateFilm(@PathVariable(value = "id") int filmId, @RequestBody Film filmDetails) {
         Film film = filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Film not found at " + filmId));
-
         film.setTitle(filmDetails.getTitle());
         film.setDescription(filmDetails.getDescription());
         film.setReleaseYear(filmDetails.getReleaseYear());
@@ -60,9 +53,7 @@ public class FakeFilmsTopTrumpsApplication {
         film.setLength(filmDetails.getLength());
         film.setReplacementCost(filmDetails.getReplacementCost());
         film.setRating(filmDetails.getRating());
-
         filmRepo.save(film);
-
     }
 
     @DeleteMapping("/deleteFilm/{id}")
@@ -89,11 +80,9 @@ public class FakeFilmsTopTrumpsApplication {
     @PutMapping("/updateActor/{id}")
     public void updateActor(@PathVariable(value = "id") int actorId, @RequestBody Actor actorDetails) {
         Actor actor = actorRepo.findById(actorId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + actorId));
-
         actor.setFirstName(actorDetails.getFirstName());
         actor.setLastName(actorDetails.getLastName());
         actorRepo.save(actor);
-
     }
 
     @DeleteMapping("/deleteActor/{id}")

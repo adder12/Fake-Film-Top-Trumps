@@ -1,12 +1,8 @@
 package fake.films.top.trumps;
 
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-
 import org.mockito.Mockito;
-import org.springframework.web.client.ResourceAccessException;
-
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -14,8 +10,8 @@ import java.util.Optional;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.*;
 
-
 class FakeFilmsTopTrumpsApplicationMockitoTest {
+
     ActorRepository actorRepo = mock(ActorRepository.class);
     FilmRepository filmRepo = mock(FilmRepository.class);
     CategoryRepository categoryRepo = mock(CategoryRepository.class);
@@ -137,7 +133,7 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
         Mockito.doNothing().when(categoryRepo).deleteById(isA(Integer.class));
         testMain.deleteCategory(id);
         verify(categoryRepo).deleteById(id);
+
+
     }
-
-
 }

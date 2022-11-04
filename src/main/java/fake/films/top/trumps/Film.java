@@ -142,6 +142,17 @@ public class Film {
         this.rating = rating;
     }
 
+    public int compareReleaseYear(Film compFilm) {
+        if (this.releaseYear < compFilm.getReleaseYear()) {
+            return 0;
+        } else if (this.releaseYear == compFilm.getReleaseYear()) {
+            return 1;
+        } else {
+            return 2;
+        }
+
+    }
+
     public int compareLength(Film compFilm) {
         if (this.length < compFilm.getLength()) {
             return 0;
