@@ -57,12 +57,12 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
         verify(filmRepo).save(film);
     }
 
-    @Test
-    void updateFilmTest() {
-        Mockito.when(filmRepo.save(film)).thenReturn(film);
-        testMain.updateFilm(id, film);
-        verify(filmRepo).save(film);
-    }
+//    @Test
+//    void updateFilmTest() {
+//        Mockito.when(filmRepo.save(film)).thenReturn(film);
+//        testMain.updateFilm(id, film);
+//        verify(filmRepo).save(film);
+//    }
 
     @Test
     void deleteFilmTest() {
