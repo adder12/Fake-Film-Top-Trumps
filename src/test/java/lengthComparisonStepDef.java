@@ -1,4 +1,5 @@
-import FakeFilmTopTrumps.Film;
+
+import fake.films.top.trumps.Film;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -1,4 +1,4 @@
-package FakeFilmTopTrumps;
+package fake.films.top.trumps;
 
 
 import javax.persistence.*;
