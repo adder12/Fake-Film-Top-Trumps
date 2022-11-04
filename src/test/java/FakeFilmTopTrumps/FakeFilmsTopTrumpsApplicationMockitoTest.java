@@ -1,4 +1,4 @@
-package Fake.Films.top.trumps;
+package FakeFilmTopTrumps;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -42,7 +42,7 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
         ArrayList<Film> filmList = new ArrayList<Film>();
 
         Mockito.when(filmRepo.findAll()).thenReturn(filmList);
-        ArrayList<Film> returnedFilm = (ArrayList<Film>) filmRepo.findAll();
+        ArrayList<Film> returnedFilm = (ArrayList<Film>) testMain.getAllFilms();
 
         Assertions.assertEquals(filmList, returnedFilm, "The Mockito test for getting all films failed");
     }

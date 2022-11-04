@@ -1,4 +1,4 @@
-package Fake.Films.top.trumps;
+package FakeFilmTopTrumps;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

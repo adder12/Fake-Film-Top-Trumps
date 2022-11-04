@@ -1,4 +1,4 @@
-import Fake.Films.top.trumps.FakeFilmsTopTrumpsApplication;
+import FakeFilmTopTrumps.FakeFilmsTopTrumpsApplication;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 
