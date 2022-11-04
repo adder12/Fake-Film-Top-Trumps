@@ -1,6 +1,5 @@
 package fake.films.top.trumps;
 
-import fake.films.top.trumps.Actor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

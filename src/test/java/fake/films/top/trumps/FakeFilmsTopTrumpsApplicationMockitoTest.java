@@ -21,13 +21,37 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     FakeFilmsTopTrumpsApplication testMain = new FakeFilmsTopTrumpsApplication(actorRepo, filmRepo, categoryRepo);
     int id = 1;
     Film film = new Film();
+    Actor actor = new Actor();
+    Category category = new Category();
 
     @Test
     void getSingleActorTest() {
-        Actor test = new Actor();
-        Mockito.when(actorRepo.findById(id)).thenReturn(Optional.of(test));
+
+        Mockito.when(actorRepo.findById(id)).thenReturn(Optional.of(actor));
         Actor returnedActor = testMain.getSingleActor(id);
-        Assertions.assertEquals(test, returnedActor, "The mockito test for Get single actor failed");
+        Assertions.assertEquals(actor, returnedActor, "The mockito test for Get single actor failed");
+    }
+
+    @Test
+    void getAllActorsTest() {
+        ArrayList<Actor> actorList = new ArrayList<>();
+        Mockito.when(actorRepo.findAll()).thenReturn(actorList);
+        ArrayList<Actor> returnedActor = (ArrayList<Actor>) testMain.getAllActors();
+        Assertions.assertEquals(actorList, returnedActor, "The get all actors test failed");
+    }
+
+    @Test
+    void createActorTest() {
+        Mockito.when(actorRepo.save(actor)).thenReturn(actor);
+        testMain.createActor(actor);
+        verify(actorRepo).save(actor);
+    }
+
+    @Test
+    void deleteActorTest() {
+        Mockito.doNothing().when(actorRepo).deleteById(isA(Integer.class));
+        testMain.deleteActor(id);
+        verify(actorRepo).deleteById(id);
     }
 
     @Test
@@ -51,12 +75,11 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     @Test
     void createFilmTest() {
 
-        Mockito.when(filmRepo.save(film)).thenReturn(film);
         testMain.createFilm(film);
         verify(filmRepo).save(film);
     }
 
-//    @Test
+    // @Test
 //    void updateFilmTest() {
 //        Mockito.when(filmRepo.save(film)).thenReturn(film);
 //        testMain.updateFilm(id, film);
@@ -69,5 +92,33 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
         testMain.deleteFilm(id);
         verify(filmRepo).deleteById(id);
 
+    }
+
+    @Test
+    void getSingleCategoryTest() {
+        Mockito.when(categoryRepo.findById(id)).thenReturn(Optional.of(category));
+        Category returnedCategory = testMain.getSingleCategory(id);
+        Assertions.assertEquals(category, returnedCategory, "The get single category method failed");
+    }
+
+    @Test
+    void getAllCategoriesTest() {
+        ArrayList<Category> categoryList = new ArrayList<>();
+        Mockito.when(categoryRepo.findAll()).thenReturn(categoryList);
+        ArrayList<Category> returnedList = (ArrayList<Category>) testMain.getAllCategories();
+        Assertions.assertEquals(categoryList, returnedList, "The get all category method failed");
+    }
+
+    @Test
+    void createCategory() {
+        testMain.createCategory(category);
+        verify(categoryRepo).save(category);
+    }
+
+    @Test
+    void deleteCategory() {
+        Mockito.doNothing().when(categoryRepo).deleteById(isA(Integer.class));
+        testMain.deleteCategory(id);
+        verify(categoryRepo).deleteById(id);
     }
 }

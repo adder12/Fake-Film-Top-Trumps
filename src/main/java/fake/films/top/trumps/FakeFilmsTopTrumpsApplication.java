@@ -23,6 +23,7 @@ public class FakeFilmsTopTrumpsApplication {
     public FakeFilmsTopTrumpsApplication(ActorRepository actorRepo, FilmRepository filmRepo, CategoryRepository categoryRepo) {
         this.actorRepo = actorRepo;
         this.filmRepo = filmRepo;
+        this.categoryRepo = categoryRepo;
     }
 
 
@@ -50,7 +51,7 @@ public class FakeFilmsTopTrumpsApplication {
 
     @PutMapping("/updateFilm/{id}")
     public void updateFilm(@PathVariable(value = "id") int filmId, @RequestBody Film filmDetails) {
-        Film film = filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + filmId));
+        Film film = filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Film not found at " + filmId));
 
         film.setTitle(filmDetails.getTitle());
         film.setDescription(filmDetails.getDescription());
@@ -96,7 +97,7 @@ public class FakeFilmsTopTrumpsApplication {
     }
 
     @DeleteMapping("/deleteActor/{id}")
-    void deleteActorByID(@PathVariable int id) {
+    void deleteActor(@PathVariable int id) {
         actorRepo.deleteById(id);
     }
 
@@ -109,7 +110,7 @@ public class FakeFilmsTopTrumpsApplication {
 
     @GetMapping("/category/{id}")
     public Category getSingleCategory(@PathVariable(value = "id") int id) {
-        return categoryRepo.findById(id).orElseThrow(() -> new ResourceAccessException("Actor not found at " + id));
+        return categoryRepo.findById(id).orElseThrow(() -> new ResourceAccessException("Category not found at " + id));
     }
 
     @PostMapping("/newCategory")
@@ -119,14 +120,14 @@ public class FakeFilmsTopTrumpsApplication {
 
     @PutMapping("updateCategory/{id}")
     public void updateCategory(@PathVariable(value = "id") int catId, @RequestBody String newName) {
-        Category category = categoryRepo.findById(catId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + catId));
+        Category category = categoryRepo.findById(catId).orElseThrow(() -> new ResourceAccessException("Category not found at " + catId));
 
         category.setCategoryName(newName);
         categoryRepo.save(category);
     }
 
     @DeleteMapping("deleteCategory/{id}")
-    void deleteCategoryById(@PathVariable int id) {
+    void deleteCategory(@PathVariable int id) {
         categoryRepo.deleteById(id);
     }
 
