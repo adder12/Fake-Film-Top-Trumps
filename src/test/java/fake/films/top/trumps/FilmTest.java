@@ -28,7 +28,7 @@ class FilmTest {
     }
 
     @Test
-    public void testReleaseYear() {
+    void testReleaseYear() {
         testFilm.setReleaseYear(2000);
         Assertions.assertEquals(2000, testFilm.getReleaseYear(), "The release year was incorrect");
     }

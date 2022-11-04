@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 import org.mockito.Mockito;
+import org.springframework.web.client.ResourceAccessException;
 
 
 import java.util.ArrayList;
@@ -48,6 +49,14 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     }
 
     @Test
+    void updateActorTest() {
+        Mockito.when(actorRepo.findById(id)).thenReturn(Optional.of(actor));
+        testMain.updateActor(id, actor);
+        verify(actorRepo).save(actor);
+
+    }
+
+    @Test
     void deleteActorTest() {
         Mockito.doNothing().when(actorRepo).deleteById(isA(Integer.class));
         testMain.deleteActor(id);
@@ -79,12 +88,12 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
         verify(filmRepo).save(film);
     }
 
-    // @Test
-//    void updateFilmTest() {
-//        Mockito.when(filmRepo.save(film)).thenReturn(film);
-//        testMain.updateFilm(id, film);
-//        verify(filmRepo).save(film);
-//    }
+    @Test
+    void updateFilmTest() {
+        Mockito.when(filmRepo.findById(id)).thenReturn(Optional.of(film));
+        testMain.updateFilm(id, film);
+        verify(filmRepo).save(film);
+    }
 
     @Test
     void deleteFilmTest() {
@@ -110,15 +119,25 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     }
 
     @Test
-    void createCategory() {
+    void createCategoryTest() {
         testMain.createCategory(category);
         verify(categoryRepo).save(category);
     }
 
     @Test
-    void deleteCategory() {
+    void updateCategoryTest() {
+        Mockito.when(categoryRepo.findById(id)).thenReturn(Optional.of(category));
+        testMain.updateCategory(id, "test");
+        verify(categoryRepo).save(category);
+
+    }
+
+    @Test
+    void deleteCategoryTest() {
         Mockito.doNothing().when(categoryRepo).deleteById(isA(Integer.class));
         testMain.deleteCategory(id);
         verify(categoryRepo).deleteById(id);
     }
+
+
 }

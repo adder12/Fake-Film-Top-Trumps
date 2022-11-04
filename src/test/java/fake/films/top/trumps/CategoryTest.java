@@ -4,7 +4,7 @@ package fake.films.top.trumps;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class CategoryTest {
+class CategoryTest {
 
     Category test = new Category();
     Category testTwo = new Category("test");
