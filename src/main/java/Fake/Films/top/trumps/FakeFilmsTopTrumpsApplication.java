@@ -107,8 +107,8 @@ public class FakeFilmsTopTrumpsApplication {
     }
 
     @GetMapping("/category/{id}")
-    public Category getSingleCategory(@PathVariable(value = "id") int catId) {
-        return categoryRepo.findById(catId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + catId));
+    public Category getSingleCategory(@PathVariable(value = "id") int id) {
+        return categoryRepo.findById(id).orElseThrow(() -> new ResourceAccessException("Actor not found at " + id));
     }
 
     @PostMapping("/newCategory")

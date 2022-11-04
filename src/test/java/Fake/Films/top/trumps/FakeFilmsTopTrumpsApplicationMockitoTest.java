@@ -8,7 +8,8 @@ import org.mockito.Mockito;
 
 import java.util.Optional;
 
-import static org.mockito.Mockito.mock;
+import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.Mockito.*;
 
 
 public class FakeFilmsTopTrumpsApplicationMockitoTest {
@@ -34,11 +35,11 @@ public class FakeFilmsTopTrumpsApplicationMockitoTest {
         Assertions.assertEquals(film, returnedFilm, "The Mockito test for get Single Film failed");
     }
 
-//    @Test
-//    public void getSingleCategory() {
-//        Category test = new Category();
-//        Mockito.when(categoryRepo.findById(id)).thenReturn(Optional.of(test));
-//        Category returnedCat = testMain.getSingleCategory(id);
-//        Assertions.assertEquals(test, returnedCat, "The Mockito test for get single category failed");
-//    }
+    @Test
+    public void createFilm() {
+        Film testFilm = new Film();
+        Mockito.when(filmRepo.save(testFilm)).thenReturn(testFilm);
+        testMain.createFilm(testFilm);
+        verify(filmRepo).save(testFilm);
+    }
 }

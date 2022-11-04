@@ -14,5 +14,5 @@ Feature: Display a single actor from the database for the user, given a actorId
       | ID  | firstName | lastName |
       | 1   | PENELOPE  | GUINESS  |
       | 51  | GARY      | PHOENIX  |
-      | 18  | Dan       | Torn     |
-      | 116 | Dan       | Streep   |
+      | 18  | DAN       | TORN     |
+      | 116 | DAN       | STREEP   |
