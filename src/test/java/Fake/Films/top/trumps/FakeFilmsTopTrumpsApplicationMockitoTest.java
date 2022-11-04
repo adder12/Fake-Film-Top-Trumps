@@ -6,21 +6,25 @@ import org.junit.jupiter.api.Assertions;
 import org.mockito.Mockito;
 
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.*;
 
 
-public class FakeFilmsTopTrumpsApplicationMockitoTest {
+class FakeFilmsTopTrumpsApplicationMockitoTest {
     ActorRepository actorRepo = mock(ActorRepository.class);
     FilmRepository filmRepo = mock(FilmRepository.class);
     CategoryRepository categoryRepo = mock(CategoryRepository.class);
     FakeFilmsTopTrumpsApplication testMain = new FakeFilmsTopTrumpsApplication(actorRepo, filmRepo, categoryRepo);
     int id = 1;
+    Film film = new Film();
 
     @Test
-    public void getSingleActor() {
+    void getSingleActorTest() {
         Actor test = new Actor();
         Mockito.when(actorRepo.findById(id)).thenReturn(Optional.of(test));
         Actor returnedActor = testMain.getSingleActor(id);
@@ -28,18 +32,43 @@ public class FakeFilmsTopTrumpsApplicationMockitoTest {
     }
 
     @Test
-    public void getSingleFilm() {
-        Film film = new Film();
+    void getSingleFilmTest() {
+
         Mockito.when(filmRepo.findById(id)).thenReturn(Optional.of(film));
         Film returnedFilm = testMain.getSingleFilm(id);
         Assertions.assertEquals(film, returnedFilm, "The Mockito test for get Single Film failed");
     }
 
     @Test
-    public void createFilm() {
-        Film testFilm = new Film();
-        Mockito.when(filmRepo.save(testFilm)).thenReturn(testFilm);
-        testMain.createFilm(testFilm);
-        verify(filmRepo).save(testFilm);
+    void getAllFilmsTest() {
+        ArrayList<Film> filmList = new ArrayList<Film>();
+
+        Mockito.when(filmRepo.findAll()).thenReturn(filmList);
+        ArrayList<Film> returnedFilm = (ArrayList<Film>) filmRepo.findAll();
+
+        Assertions.assertEquals(filmList, returnedFilm, "The Mockito test for getting all films failed");
+    }
+
+    @Test
+    void createFilmTest() {
+
+        Mockito.when(filmRepo.save(film)).thenReturn(film);
+        testMain.createFilm(film);
+        verify(filmRepo).save(film);
+    }
+
+    @Test
+    void updateFilmTest() {
+        Mockito.when(filmRepo.save(film)).thenReturn(film);
+        testMain.updateFilm(id, film);
+        verify(filmRepo).save(film);
+    }
+
+    @Test
+    void deleteFilmTest() {
+        Mockito.doNothing().when(filmRepo).deleteById(isA(Integer.class));
+        testMain.deleteFilm(id);
+        verify(filmRepo).deleteById(id);
+
     }
 }
