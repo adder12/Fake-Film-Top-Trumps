@@ -11,7 +11,7 @@ import org.springframework.web.client.ResourceAccessException;
 @SpringBootApplication
 @RestController
 @RequestMapping("/home")
-@CrossOrigin
+@CrossOrigin(origins = {"http://localhost:8080","http://localhost:3000"})
 public class FakeFilmsTopTrumpsApplication {
     @Autowired
     public ActorRepository actorRepo;
@@ -31,6 +31,14 @@ public class FakeFilmsTopTrumpsApplication {
     @GetMapping("/allFilms")
     public @ResponseBody Iterable<Film> getAllFilms() {
         return filmRepo.findAll();
+    }
+
+    @GetMapping("/filmCount")
+    public int getFilmCount(){
+
+int count =(int) filmRepo.count();
+
+        return count;
     }
 
     @GetMapping("/singleFilm/{id}")
