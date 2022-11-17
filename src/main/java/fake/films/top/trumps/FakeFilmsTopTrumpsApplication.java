@@ -82,6 +82,7 @@ int count =(int) filmRepo.count();
 
     @PostMapping("/newActor")
     public void createActor(@RequestBody Actor actor) {
+
         actorRepo.save(actor);
     }
 

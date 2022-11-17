@@ -19,6 +19,9 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     int id = 1;
     Film film = new Film();
     Actor actor = new Actor();
+
+
+
     Category category = new Category();
 
     @Test
@@ -39,7 +42,10 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
 
     @Test
     void createActorTest() {
+
         Mockito.when(actorRepo.save(actor)).thenReturn(actor);
+
+
         testMain.createActor(actor);
         verify(actorRepo).save(actor);
     }
@@ -127,7 +133,6 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
         verify(categoryRepo).save(category);
 
     }
-
     @Test
     void deleteCategoryTest() {
         Mockito.doNothing().when(categoryRepo).deleteById(isA(Integer.class));
