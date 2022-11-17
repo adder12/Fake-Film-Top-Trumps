@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class CategoryModelTest {
 
-        Category test = new Category();
-        Category testTwo = new Category("test");
+        CategoryModel test = new CategoryModel();
+        CategoryModel testTwo = new CategoryModel("test");
 
         @Test
         void testGetCategoryName() {

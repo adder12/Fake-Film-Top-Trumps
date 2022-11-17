@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class FilmModelTest {
 
-    Film testFilm = new Film();
-    Film newFilm = new Film("test", "test", 2006, 20.4, 90, 10.53, "PG");
+    FilmModel testFilm = new FilmModel();
+    FilmModel newFilm = new FilmModel("test", "test", 2006, 20.4, 90, 10.53, "PG");
 
 
     @Test

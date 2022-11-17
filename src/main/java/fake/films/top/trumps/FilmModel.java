@@ -120,7 +120,7 @@ public class FilmModel {
         this.rating = rating;
     }
 
-    public int compareReleaseYear(Film compFilm) {
+    public int compareReleaseYear(FilmModel compFilm) {
         if (this.releaseYear < compFilm.getReleaseYear()) {
             return 0;
         } else if (this.releaseYear == compFilm.getReleaseYear()) {
@@ -131,7 +131,7 @@ public class FilmModel {
 
     }
 
-    public int compareLength(Film compFilm) {
+    public int compareLength(FilmModel compFilm) {
         if (this.length < compFilm.getLength()) {
             return 0;
         } else if (this.length == compFilm.length) {
@@ -141,7 +141,7 @@ public class FilmModel {
         }
     }
 
-    public int compareRentalRate(Film compFilm) {
+    public int compareRentalRate(FilmModel compFilm) {
         if (this.rentalRate < compFilm.getRentalRate()) {
             return 0;
         } else if (this.rentalRate == compFilm.getRentalRate()) {
@@ -151,7 +151,7 @@ public class FilmModel {
         }
     }
 
-    public int compareReplacementCost(Film compFilm) {
+    public int compareReplacementCost(FilmModel compFilm) {
         if (this.replacementCost < compFilm.getReplacementCost()) {
             return 0;
         } else if (this.replacementCost == compFilm.getReplacementCost()) {
@@ -161,7 +161,7 @@ public class FilmModel {
         }
     }
 
-    public int compareRating(Film compFilm) {
+    public int compareRating(FilmModel compFilm) {
         if (this.getIntRating() < compFilm.getIntRating()) {
             return 0;
         } else if (this.getIntRating() == compFilm.getIntRating()) {
