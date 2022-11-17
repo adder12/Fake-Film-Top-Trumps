@@ -3,7 +3,7 @@ package fake.films.top.trumps;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ActorModelTest {
+class ActorModelTest {
 
     ActorModel testActor = new ActorModel();
     ActorModel testActorTwo = new ActorModel("test", "test");

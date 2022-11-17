@@ -28,18 +28,16 @@ public class FakeFilmsTopTrumpsApplication {
 
     public static void main(String[] args) {SpringApplication.run(FakeFilmsTopTrumpsApplication.class, args);}
 
+    @GetMapping("/filmCount")
+    public int getFilmCount(){
+        return  (int) filmRepo.count();
+    }
     @GetMapping("/allFilms")
     public @ResponseBody Iterable<Film> getAllFilms() {
         return filmRepo.findAll();
     }
 
-    @GetMapping("/filmCount")
-    public int getFilmCount(){
 
-int count =(int) filmRepo.count();
-
-        return count;
-    }
 
     @GetMapping("/singleFilm/{id}")
     public Film getSingleFilm(@PathVariable(value = "id") int filmId) {

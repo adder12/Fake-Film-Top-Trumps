@@ -191,12 +191,15 @@ class FilmTest {
 
         Actor testActor = new Actor();
         newFilm.addActor(testActor);
+        Assertions.assertEquals(1,newFilm.actors.size(),"The add actor method failed");
     }
 
     @Test
     void testAddCategory() {
         Category testCategory = new Category();
         newFilm.addCategory(testCategory);
+
+        Assertions.assertEquals(1,newFilm.categories.size(),"The add category method failed");
     }
 
 
