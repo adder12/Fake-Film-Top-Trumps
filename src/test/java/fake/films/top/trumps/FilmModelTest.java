@@ -3,8 +3,7 @@ package fake.films.top.trumps;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
-class FilmTest {
+public class FilmModelTest {
 
     Film testFilm = new Film();
     Film newFilm = new Film("test", "test", 2006, 20.4, 90, 10.53, "PG");

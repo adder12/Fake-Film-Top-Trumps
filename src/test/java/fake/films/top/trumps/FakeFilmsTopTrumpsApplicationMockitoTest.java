@@ -20,7 +20,8 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     Film film = new Film();
     Actor actor = new Actor();
 
-
+    FilmModel filmModel = new FilmModel();
+    ActorModel newActor = new ActorModel();
 
     Category category = new Category();
 
@@ -43,17 +44,18 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     @Test
     void createActorTest() {
 
-        Mockito.when(actorRepo.save(actor)).thenReturn(actor);
+Actor actorNew = new Actor(newActor.getFirstName(),newActor.getLastName());
+        when(actorRepo.save(any(Actor.class))).thenReturn(actorNew);
 
-
-        testMain.createActor(actor);
-        verify(actorRepo).save(actor);
+        testMain.createActor(newActor);
+        verify(actorRepo).save(any(Actor.class));
     }
 
     @Test
     void updateActorTest() {
+
         Mockito.when(actorRepo.findById(id)).thenReturn(Optional.of(actor));
-        testMain.updateActor(id, actor);
+        testMain.updateActor(id, newActor);
         verify(actorRepo).save(actor);
 
     }
@@ -86,15 +88,15 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     @Test
     void createFilmTest() {
 
-        testMain.createFilm(film);
-        verify(filmRepo).save(film);
+        testMain.createFilm(filmModel);
+        verify(filmRepo).save(any(Film.class));
     }
 
     @Test
     void updateFilmTest() {
         Mockito.when(filmRepo.findById(id)).thenReturn(Optional.of(film));
-        testMain.updateFilm(id, film);
-        verify(filmRepo).save(film);
+        testMain.updateFilm(id, filmModel);
+        verify(filmRepo).save(any(Film.class));
     }
 
     @Test
@@ -103,6 +105,13 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
         testMain.deleteFilm(id);
         verify(filmRepo).deleteById(id);
 
+    }
+
+
+    @Test
+    void filmCountTest(){
+      testMain.getFilmCount();
+      verify(filmRepo).count();
     }
 
     @Test
@@ -122,8 +131,11 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
 
     @Test
     void createCategoryTest() {
-        testMain.createCategory(category);
-        verify(categoryRepo).save(category);
+CategoryModel catModel = new CategoryModel();
+        testMain.createCategory(catModel);
+        Mockito.when(categoryRepo.save(any(Category.class))).thenReturn(category);
+
+        verify(categoryRepo).save(any(Category.class));
     }
 
     @Test

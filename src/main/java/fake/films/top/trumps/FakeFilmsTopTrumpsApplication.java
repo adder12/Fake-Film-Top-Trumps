@@ -45,12 +45,14 @@ public class FakeFilmsTopTrumpsApplication {
     }
 
     @PostMapping("/newFilm")
-    public void createFilm(@RequestBody Film film) {
-        filmRepo.save(film);
+    public void createFilm(@RequestBody FilmModel film) {
+
+        Film newFilm = new Film(film.getTitle(),film.getDescription(),film.getReleaseYear(),film.getRentalRate(), film.getLength(), film.getReplacementCost(),film.getRating());
+        filmRepo.save(newFilm);
     }
 
     @PutMapping("/updateFilm/{id}")
-    public void updateFilm(@PathVariable(value = "id") int filmId, @RequestBody Film filmDetails) {
+    public void updateFilm(@PathVariable(value = "id") int filmId, @RequestBody FilmModel filmDetails) {
         Film film = filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Film not found at " + filmId));
         film.setTitle(filmDetails.getTitle());
         film.setDescription(filmDetails.getDescription());
@@ -79,13 +81,14 @@ public class FakeFilmsTopTrumpsApplication {
     }
 
     @PostMapping("/newActor")
-    public void createActor(@RequestBody Actor actor) {
-
-        actorRepo.save(actor);
+    public void createActor(@RequestBody ActorModel actor) {
+Actor newActor = new Actor(actor.getFirstName(),actor.getLastName());
+        actorRepo.save(newActor);
     }
 
     @PutMapping("/updateActor/{id}")
-    public void updateActor(@PathVariable(value = "id") int actorId, @RequestBody Actor actorDetails) {
+    public void updateActor(@PathVariable(value = "id") int actorId, @RequestBody ActorModel actorDetails) {
+
         Actor actor = actorRepo.findById(actorId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + actorId));
         actor.setFirstName(actorDetails.getFirstName());
         actor.setLastName(actorDetails.getLastName());
@@ -110,8 +113,9 @@ public class FakeFilmsTopTrumpsApplication {
     }
 
     @PostMapping("/newCategory")
-    public void createCategory(@RequestBody Category category) {
-        categoryRepo.save(category);
+    public void createCategory(@RequestBody CategoryModel category) {
+        Category newCat = new Category(category.getCategoryName());
+        categoryRepo.save(newCat);
     }
 
     @PutMapping("updateCategory/{id}")
