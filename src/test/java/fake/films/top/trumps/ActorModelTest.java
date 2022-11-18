@@ -12,26 +12,26 @@ class ActorModelTest {
     @Test
     void testToString() {
         String testString = "Actor id = 0 first name = null last name = null";
-        Assertions.assertEquals(testString, testActor.toString(), "The to string method failed");
+        Assertions.assertEquals(testString, testActor.ModeltoString(), "The to string method failed");
     }
 
     @Test
     void testGetActorId() {
 
-        Assertions.assertEquals(0, testActorTwo.getActorId(), "The actor ID is incorrect");
+        Assertions.assertEquals(0, testActorTwo.getActorModelId(), "The actor ID is incorrect");
 
     }
 
     @Test
     void testgetFirstName() {
-        testActor.setFirstName("test");
-        Assertions.assertEquals("test", testActor.getFirstName(), "The first name was incorrect");
+        testActor.setModelFirstName("test");
+        Assertions.assertEquals("test", testActor.getModelFirstName(), "The first name was incorrect");
     }
 
     @Test
     void testgetLastName() {
-        testActor.setLastName("test");
-        Assertions.assertEquals("test", testActor.getLastName(), "The last name was incorrect");
+        testActor.setModelLastName("test");
+        Assertions.assertEquals("test", testActor.getModelLastName(), "The last name was incorrect");
     }
 
 }

@@ -82,7 +82,7 @@ public class FakeFilmsTopTrumpsApplication {
 
     @PostMapping("/newActor")
     public void createActor(@RequestBody ActorModel actor) {
-Actor newActor = new Actor(actor.getFirstName(),actor.getLastName());
+Actor newActor = new Actor(actor.getModelFirstName(),actor.getModelLastName());
         actorRepo.save(newActor);
     }
 
@@ -90,8 +90,8 @@ Actor newActor = new Actor(actor.getFirstName(),actor.getLastName());
     public void updateActor(@PathVariable(value = "id") int actorId, @RequestBody ActorModel actorDetails) {
 
         Actor actor = actorRepo.findById(actorId).orElseThrow(() -> new ResourceAccessException("Actor not found at " + actorId));
-        actor.setFirstName(actorDetails.getFirstName());
-        actor.setLastName(actorDetails.getLastName());
+        actor.setFirstName(actorDetails.getModelFirstName());
+        actor.setLastName(actorDetails.getModelLastName());
         actorRepo.save(actor);
     }
 

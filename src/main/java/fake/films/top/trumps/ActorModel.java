@@ -24,27 +24,27 @@ Set<Film> films;
 
 
     //Methods-----------------------------------------------------------------------------------------------
-    public int getActorId() {
+    public int getActorModelId() {
         return this.actorId;
     }
 
-    public String getFirstName() {
+    public String getModelFirstName() {
         return this.firstName;
     }
 
-    public String getLastName() {
+    public String getModelLastName() {
         return this.lastName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setModelFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void setLastName(String lastName) {
+    public void setModelLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String toString() {
+    public String ModeltoString() {
         StringBuilder output = new StringBuilder();
         output.append("Actor id = ");
         output.append(this.actorId);

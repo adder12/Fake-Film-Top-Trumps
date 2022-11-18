@@ -44,7 +44,7 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     @Test
     void createActorTest() {
 
-Actor actorNew = new Actor(newActor.getFirstName(),newActor.getLastName());
+Actor actorNew = new Actor(newActor.getModelFirstName(),newActor.getModelLastName());
         when(actorRepo.save(any(Actor.class))).thenReturn(actorNew);
 
         testMain.createActor(newActor);
