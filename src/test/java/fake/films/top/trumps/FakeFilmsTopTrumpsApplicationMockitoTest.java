@@ -3,6 +3,7 @@ package fake.films.top.trumps;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -15,6 +16,8 @@ class FakeFilmsTopTrumpsApplicationMockitoTest {
     ActorRepository actorRepo = mock(ActorRepository.class);
     FilmRepository filmRepo = mock(FilmRepository.class);
     CategoryRepository categoryRepo = mock(CategoryRepository.class);
+
+    @Spy
     FakeFilmsTopTrumpsApplication testMain = new FakeFilmsTopTrumpsApplication(actorRepo, filmRepo, categoryRepo);
     int id = 1;
     Film film = new Film();
@@ -151,6 +154,7 @@ CategoryModel catModel = new CategoryModel();
         testMain.deleteCategory(id);
         verify(categoryRepo).deleteById(id);
 
-
     }
+
+
 }

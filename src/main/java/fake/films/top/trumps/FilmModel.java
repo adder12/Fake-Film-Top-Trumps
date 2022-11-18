@@ -35,39 +35,39 @@ public class FilmModel {
     }
 
     //Methods-----------------------------------------------------------------------------------------------
-    public int getFilmId() {
+    public int getModelFilmId() {
         return this.filmId;
     }
 
-    public String getTitle() {
+    public String getModelTitle() {
         return this.title;
     }
 
-    public String getDescription() {
+    public String getModelDescription() {
         return this.description;
     }
 
-    public int getReleaseYear() {
+    public int getModelReleaseYear() {
         return this.releaseYear;
     }
 
-    public double getRentalRate() {
+    public double getModelRentalRate() {
         return this.rentalRate;
     }
 
-    public int getLength() {
+    public int getModelLength() {
         return this.length;
     }
 
-    public double getReplacementCost() {
+    public double getModelReplacementCost() {
         return this.replacementCost;
     }
 
-    public String getRating() {
+    public String getModelRating() {
         return this.rating;
     }
 
-    public int getIntRating() {
+    public int getModelIntRating() {
         int intRating = 0;
         switch (this.rating) {
             case "G":
@@ -92,38 +92,38 @@ public class FilmModel {
         return intRating;
     }
 
-    public void setTitle(String title) {
+    public void setModelTitle(String title) {
         this.title = title;
     }
 
-    public void setDescription(String description) {
+    public void setModelDescription(String description) {
         this.description = description;
     }
 
-    public void setReleaseYear(int releaseYear) {
+    public void setModelReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
 
-    public void setRentalRate(double rentalRate) {
+    public void setModelRentalRate(double rentalRate) {
         this.rentalRate = rentalRate;
     }
 
-    public void setLength(int length) {
+    public void setModelLength(int length) {
         this.length = length;
     }
 
-    public void setReplacementCost(double replacementCost) {
+    public void setModelReplacementCost(double replacementCost) {
         this.replacementCost = replacementCost;
     }
 
-    public void setRating(String rating) {
+    public void setModelRating(String rating) {
         this.rating = rating;
     }
 
-    public int compareReleaseYear(FilmModel compFilm) {
-        if (this.releaseYear < compFilm.getReleaseYear()) {
+    public int compareModelReleaseYear(FilmModel compFilm) {
+        if (this.releaseYear < compFilm.getModelReleaseYear()) {
             return 0;
-        } else if (this.releaseYear == compFilm.getReleaseYear()) {
+        } else if (this.releaseYear == compFilm.getModelReleaseYear()) {
             return 1;
         } else {
             return 2;
@@ -131,40 +131,40 @@ public class FilmModel {
 
     }
 
-    public int compareLength(FilmModel compFilm) {
-        if (this.length < compFilm.getLength()) {
+    public int compareModelLength(FilmModel compFilm) {
+        if (this.length < compFilm.getModelLength()) {
             return 0;
-        } else if (this.length == compFilm.length) {
+        } else if (this.length == compFilm.getModelLength()) {
             return 1;
         } else {
             return 2;
         }
     }
 
-    public int compareRentalRate(FilmModel compFilm) {
-        if (this.rentalRate < compFilm.getRentalRate()) {
+    public int compareModelRentalRate(FilmModel compFilm) {
+        if (this.rentalRate < compFilm.getModelRentalRate()) {
             return 0;
-        } else if (this.rentalRate == compFilm.getRentalRate()) {
+        } else if (this.rentalRate == compFilm.getModelRentalRate()) {
             return 1;
         } else {
             return 2;
         }
     }
 
-    public int compareReplacementCost(FilmModel compFilm) {
-        if (this.replacementCost < compFilm.getReplacementCost()) {
+    public int compareModelReplacementCost(FilmModel compFilm) {
+        if (this.replacementCost < compFilm.getModelReplacementCost()) {
             return 0;
-        } else if (this.replacementCost == compFilm.getReplacementCost()) {
+        } else if (this.replacementCost == compFilm.getModelReplacementCost()) {
             return 1;
         } else {
             return 2;
         }
     }
 
-    public int compareRating(FilmModel compFilm) {
-        if (this.getIntRating() < compFilm.getIntRating()) {
+    public int compareModelRating(FilmModel compFilm) {
+        if (this.getModelIntRating() < compFilm.getModelIntRating()) {
             return 0;
-        } else if (this.getIntRating() == compFilm.getIntRating()) {
+        } else if (this.getModelIntRating() == compFilm.getModelIntRating()) {
             return 1;
         } else {
             return 2;
@@ -172,15 +172,15 @@ public class FilmModel {
     }
 
 
-    public void addActor(Actor actor) {
+    public void addModelActor(Actor actor) {
         actors.add(actor);
     }
 
-    public void addCategory(Category category) {
+    public void addModelCategory(Category category) {
         categories.add(category);
     }
 
-    public String toString() {
+    public String modelToString() {
 
         StringBuilder output = new StringBuilder();
         output.append("Film id = ");

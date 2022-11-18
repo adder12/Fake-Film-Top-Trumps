@@ -21,11 +21,11 @@ Set<Film> films;
 
 //Methods------------------------------------------------------------------------
 
-    public String getCategoryName() {
+    public String getCategoryModelName() {
         return this.categoryName;
     }
 
-    public void setCategoryName(String name) {
+    public void setCategoryModelName(String name) {
         this.categoryName = name;
     }
 }

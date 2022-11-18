@@ -12,7 +12,7 @@ class ActorModelTest {
     @Test
     void testToString() {
         String testString = "Actor id = 0 first name = null last name = null";
-        Assertions.assertEquals(testString, testActor.ModeltoString(), "The to string method failed");
+        Assertions.assertEquals(testString, testActor.modelToString(), "The to string method failed");
     }
 
     @Test

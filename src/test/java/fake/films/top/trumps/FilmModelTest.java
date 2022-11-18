@@ -11,177 +11,177 @@ import org.junit.jupiter.api.Test;
 
     @Test
     void testGetFilmId() {
-        Assertions.assertEquals(0, testFilm.getFilmId(), "The id was incorrect");
+        Assertions.assertEquals(0, testFilm.getModelFilmId(), "The id was incorrect");
     }
 
     @Test
     void testTitle() {
-        testFilm.setTitle("test");
-        Assertions.assertEquals("test", testFilm.getTitle(), "The title is incorrect");
+        testFilm.setModelTitle("test");
+        Assertions.assertEquals("test", testFilm.getModelTitle(), "The title is incorrect");
     }
 
     @Test
     void testDescription() {
-        testFilm.setDescription("test");
-        Assertions.assertEquals("test", testFilm.getDescription(), "The description was incorrect");
+        testFilm.setModelDescription("test");
+        Assertions.assertEquals("test", testFilm.getModelDescription(), "The description was incorrect");
     }
 
     @Test
     void testReleaseYear() {
-        testFilm.setReleaseYear(2000);
-        Assertions.assertEquals(2000, testFilm.getReleaseYear(), "The release year was incorrect");
+        testFilm.setModelReleaseYear(2000);
+        Assertions.assertEquals(2000, testFilm.getModelReleaseYear(), "The release year was incorrect");
     }
 
     @Test
     void testRentalRate() {
-        testFilm.setRentalRate(10.54);
-        Assertions.assertEquals(10.54, testFilm.getRentalRate(), "The rental rate was incorrect");
+        testFilm.setModelRentalRate(10.54);
+        Assertions.assertEquals(10.54, testFilm.getModelRentalRate(), "The rental rate was incorrect");
     }
 
     @Test
     void testLength() {
-        testFilm.setLength(200);
-        Assertions.assertEquals(200, testFilm.getLength(), "The length was incorrect");
+        testFilm.setModelLength(200);
+        Assertions.assertEquals(200, testFilm.getModelLength(), "The length was incorrect");
     }
 
     @Test
     void testReplacementCost() {
-        testFilm.setReplacementCost(21.43);
-        Assertions.assertEquals(21.43, testFilm.getReplacementCost(), "The replacement cost was incorrect");
+        testFilm.setModelReplacementCost(21.43);
+        Assertions.assertEquals(21.43, testFilm.getModelReplacementCost(), "The replacement cost was incorrect");
     }
 
     @Test
     void testRating() {
-        testFilm.setRating("G");
-        Assertions.assertEquals("G", testFilm.getRating(), "The rating was incorrect");
+        testFilm.setModelRating("G");
+        Assertions.assertEquals("G", testFilm.getModelRating(), "The rating was incorrect");
     }
 
     @Test
     void testGetIntRatingG() {
-        testFilm.setRating("G");
-        Assertions.assertEquals(1, testFilm.getIntRating(), "The get Int rating method failed on G");
+        testFilm.setModelRating("G");
+        Assertions.assertEquals(1, testFilm.getModelIntRating(), "The get Int rating method failed on G");
     }
 
     @Test
     void testGetIntRatingPG() {
-        testFilm.setRating("PG");
-        Assertions.assertEquals(2, testFilm.getIntRating(), "The get Int rating method failed on PG");
+        testFilm.setModelRating("PG");
+        Assertions.assertEquals(2, testFilm.getModelIntRating(), "The get Int rating method failed on PG");
     }
 
     @Test
     void testGetIntRatingPG13() {
-        testFilm.setRating("PG-13");
-        Assertions.assertEquals(3, testFilm.getIntRating(), "The get int rating method failed on PG-13");
+        testFilm.setModelRating("PG-13");
+        Assertions.assertEquals(3, testFilm.getModelIntRating(), "The get int rating method failed on PG-13");
     }
 
     @Test
     void testGetIntRatingNC17() {
-        testFilm.setRating("NC-17");
-        Assertions.assertEquals(4, testFilm.getIntRating(), "The get int rating method failed on NC-17");
+        testFilm.setModelRating("NC-17");
+        Assertions.assertEquals(4, testFilm.getModelIntRating(), "The get int rating method failed on NC-17");
     }
 
     @Test
     void testGetIntRatingR() {
-        testFilm.setRating("R");
-        Assertions.assertEquals(5, testFilm.getIntRating(), "The get int rating method failed on R");
+        testFilm.setModelRating("R");
+        Assertions.assertEquals(5, testFilm.getModelIntRating(), "The get int rating method failed on R");
     }
 
     @Test
     void testGetIntRatingDEF() {
-        testFilm.setRating("test");
-        Assertions.assertEquals(0, testFilm.getIntRating(), "The get int rating method failed on the default case");
+        testFilm.setModelRating("test");
+        Assertions.assertEquals(0, testFilm.getModelIntRating(), "The get int rating method failed on the default case");
     }
 
     @Test
     void testCompareReleaseYearLess() {
-        testFilm.setReleaseYear(2005);
-        Assertions.assertEquals(0, testFilm.compareReleaseYear(newFilm), "The Release year comparison failed on less");
+        testFilm.setModelReleaseYear(2005);
+        Assertions.assertEquals(0, testFilm.compareModelReleaseYear(newFilm), "The Release year comparison failed on less");
     }
 
     @Test
     void testCompareReleaseYearSame() {
-        testFilm.setReleaseYear(2006);
-        Assertions.assertEquals(1, testFilm.compareReleaseYear(newFilm), "The release year comparison failed on same");
+        testFilm.setModelReleaseYear(2006);
+        Assertions.assertEquals(1, testFilm.compareModelReleaseYear(newFilm), "The release year comparison failed on same");
     }
 
     @Test
     void testCompareReleaseYearHigher() {
-        testFilm.setReleaseYear(2007);
-        Assertions.assertEquals(2, testFilm.compareReleaseYear(newFilm), "The release year comparison failed on more");
+        testFilm.setModelReleaseYear(2007);
+        Assertions.assertEquals(2, testFilm.compareModelReleaseYear(newFilm), "The release year comparison failed on more");
     }
 
     @Test
     void testCompareLengthLess() {
-        testFilm.setLength(89);
-        Assertions.assertEquals(0, testFilm.compareLength(newFilm), "The length comparison failed on shorter");
+        testFilm.setModelLength(89);
+        Assertions.assertEquals(0, testFilm.compareModelLength(newFilm), "The length comparison failed on shorter");
     }
 
     @Test
     void testCompareLengthSame() {
-        testFilm.setLength(90);
-        Assertions.assertEquals(1, testFilm.compareLength(newFilm), "The length comparison failed on equal");
+        testFilm.setModelLength(90);
+        Assertions.assertEquals(1, testFilm.compareModelLength(newFilm), "The length comparison failed on equal");
     }
 
     @Test
     void testCompareLengthMore() {
-        testFilm.setLength(91);
-        Assertions.assertEquals(2, testFilm.compareLength(newFilm), "The length comparison failed on longer");
+        testFilm.setModelLength(91);
+        Assertions.assertEquals(2, testFilm.compareModelLength(newFilm), "The length comparison failed on longer");
     }
 
 
     @Test
     void testCompareRentalRateLess() {
-        testFilm.setRentalRate(20.39);
-        Assertions.assertEquals(0, testFilm.compareRentalRate(newFilm), "The rental rate comparison failed on lesser");
+        testFilm.setModelRentalRate(20.39);
+        Assertions.assertEquals(0, testFilm.compareModelRentalRate(newFilm), "The rental rate comparison failed on lesser");
     }
 
     @Test
     void testCompareRentalRateSame() {
-        testFilm.setRentalRate(20.4);
-        Assertions.assertEquals(1, testFilm.compareRentalRate(newFilm), "The rental rate comparison failed on same");
+        testFilm.setModelRentalRate(20.4);
+        Assertions.assertEquals(1, testFilm.compareModelRentalRate(newFilm), "The rental rate comparison failed on same");
     }
 
     @Test
     void testCompareRentalRateMore() {
-        testFilm.setRentalRate(20.41);
-        Assertions.assertEquals(2, testFilm.compareRentalRate(newFilm), "The rental rate comparison failed om more");
+        testFilm.setModelRentalRate(20.41);
+        Assertions.assertEquals(2, testFilm.compareModelRentalRate(newFilm), "The rental rate comparison failed om more");
     }
 
 
     @Test
     void testCompareReplacementCostLess() {
-        testFilm.setReplacementCost(10.52);
-        Assertions.assertEquals(0, testFilm.compareReplacementCost(newFilm), "The replacement rate comparison failed on lower");
+        testFilm.setModelReplacementCost(10.52);
+        Assertions.assertEquals(0, testFilm.compareModelReplacementCost(newFilm), "The replacement rate comparison failed on lower");
     }
 
     @Test
     void testCompareReplacementCostSame() {
-        testFilm.setReplacementCost(10.53);
-        Assertions.assertEquals(1, testFilm.compareReplacementCost(newFilm), "The replacement cost comparison failed on same");
+        testFilm.setModelReplacementCost(10.53);
+        Assertions.assertEquals(1, testFilm.compareModelReplacementCost(newFilm), "The replacement cost comparison failed on same");
     }
 
     @Test
     void testCompareReplacementCostMore() {
-        testFilm.setReplacementCost(10.54);
-        Assertions.assertEquals(2, testFilm.compareReplacementCost(newFilm), "The replacment cost comparison failed on larger");
+        testFilm.setModelReplacementCost(10.54);
+        Assertions.assertEquals(2, testFilm.compareModelReplacementCost(newFilm), "The replacment cost comparison failed on larger");
     }
 
     @Test
     void testCompareRatingLess() {
-        testFilm.setRating("G");
-        Assertions.assertEquals(0, testFilm.compareRating(newFilm), "The rating comparison failed on lower");
+        testFilm.setModelRating("G");
+        Assertions.assertEquals(0, testFilm.compareModelRating(newFilm), "The rating comparison failed on lower");
     }
 
     @Test
     void testCompareRatingSame() {
-        testFilm.setRating("PG");
-        Assertions.assertEquals(1, testFilm.compareRating(newFilm), "The rating comparison failed on equal");
+        testFilm.setModelRating("PG");
+        Assertions.assertEquals(1, testFilm.compareModelRating(newFilm), "The rating comparison failed on equal");
     }
 
     @Test
     void testCompareRatingMore() {
-        testFilm.setRating("PG-13");
-        Assertions.assertEquals(2, testFilm.compareRating(newFilm), "The rating comparison failed on more");
+        testFilm.setModelRating("PG-13");
+        Assertions.assertEquals(2, testFilm.compareModelRating(newFilm), "The rating comparison failed on more");
     }
 
 
@@ -189,14 +189,14 @@ import org.junit.jupiter.api.Test;
     void testAddActor() {
 
         Actor testActor = new Actor();
-        newFilm.addActor(testActor);
+        newFilm.addModelActor(testActor);
         Assertions.assertEquals(1,newFilm.actors.size(),"The add actor method failed");
     }
 
     @Test
     void testAddCategory() {
         Category testCategory = new Category();
-        newFilm.addCategory(testCategory);
+        newFilm.addModelCategory(testCategory);
 
         Assertions.assertEquals(1,newFilm.categories.size(),"The add category method failed");
     }
@@ -205,7 +205,7 @@ import org.junit.jupiter.api.Test;
     @Test
     void testToString() {
         String testString = "Film id = 0 Title = test Description = test Release Year = 2006 RentalRate = 20.4 Length = 90 Replacement Cost = 10.53 rating = PG";
-        Assertions.assertEquals(testString, newFilm.toString(), "The film to string method failed");
+        Assertions.assertEquals(testString, newFilm.modelToString(), "The film to string method failed");
     }
 
 }

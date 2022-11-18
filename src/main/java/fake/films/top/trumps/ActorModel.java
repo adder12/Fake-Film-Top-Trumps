@@ -44,7 +44,7 @@ Set<Film> films;
         this.lastName = lastName;
     }
 
-    public String ModeltoString() {
+    public String modelToString() {
         StringBuilder output = new StringBuilder();
         output.append("Actor id = ");
         output.append(this.actorId);

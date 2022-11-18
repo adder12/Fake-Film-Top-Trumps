@@ -26,7 +26,9 @@ public class FakeFilmsTopTrumpsApplication {
         this.categoryRepo = categoryRepo;
     }
 
-    public static void main(String[] args) {SpringApplication.run(FakeFilmsTopTrumpsApplication.class, args);}
+    public static void main(String[] args) {SpringApplication.run(FakeFilmsTopTrumpsApplication.class, args);
+
+    }
 
     @GetMapping("/filmCount")
     public int getFilmCount(){
@@ -47,20 +49,20 @@ public class FakeFilmsTopTrumpsApplication {
     @PostMapping("/newFilm")
     public void createFilm(@RequestBody FilmModel film) {
 
-        Film newFilm = new Film(film.getTitle(),film.getDescription(),film.getReleaseYear(),film.getRentalRate(), film.getLength(), film.getReplacementCost(),film.getRating());
+        Film newFilm = new Film(film.getModelTitle(),film.getModelDescription(),film.getModelReleaseYear(),film.getModelRentalRate(), film.getModelLength(), film.getModelReplacementCost(),film.getModelRating());
         filmRepo.save(newFilm);
     }
 
     @PutMapping("/updateFilm/{id}")
     public void updateFilm(@PathVariable(value = "id") int filmId, @RequestBody FilmModel filmDetails) {
         Film film = filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Film not found at " + filmId));
-        film.setTitle(filmDetails.getTitle());
-        film.setDescription(filmDetails.getDescription());
-        film.setReleaseYear(filmDetails.getReleaseYear());
-        film.setRentalRate(filmDetails.getRentalRate());
-        film.setLength(filmDetails.getLength());
-        film.setReplacementCost(filmDetails.getReplacementCost());
-        film.setRating(filmDetails.getRating());
+        film.setTitle(filmDetails.getModelTitle());
+        film.setDescription(filmDetails.getModelDescription());
+        film.setReleaseYear(filmDetails.getModelReleaseYear());
+        film.setRentalRate(filmDetails.getModelRentalRate());
+        film.setLength(filmDetails.getModelLength());
+        film.setReplacementCost(filmDetails.getModelReplacementCost());
+        film.setRating(filmDetails.getModelRating());
         filmRepo.save(film);
     }
 
@@ -114,7 +116,7 @@ Actor newActor = new Actor(actor.getModelFirstName(),actor.getModelLastName());
 
     @PostMapping("/newCategory")
     public void createCategory(@RequestBody CategoryModel category) {
-        Category newCat = new Category(category.getCategoryName());
+        Category newCat = new Category(category.getCategoryModelName());
         categoryRepo.save(newCat);
     }
 

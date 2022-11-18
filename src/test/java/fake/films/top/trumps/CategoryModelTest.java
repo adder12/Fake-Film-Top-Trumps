@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 
         @Test
         void testGetCategoryName() {
-            test.setCategoryName("test");
-            Assertions.assertEquals("test", test.getCategoryName(), "The category failed on Get category name");
+            test.setCategoryModelName("test");
+            Assertions.assertEquals("test", test.getCategoryModelName(), "The category failed on Get category name");
         }
 
 
